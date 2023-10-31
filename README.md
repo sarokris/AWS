@@ -1,2 +1,2 @@
 # AWS
-AWS pet projects
+AWS projects to learn and explore
