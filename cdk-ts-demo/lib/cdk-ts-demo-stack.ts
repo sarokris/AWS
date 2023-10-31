@@ -1,16 +1,28 @@
 import * as cdk from 'aws-cdk-lib';
+import { Duration } from 'aws-cdk-lib';
+import { HttpMethod } from 'aws-cdk-lib/aws-events';
 import { Construct } from 'constructs';
-// import * as sqs from 'aws-cdk-lib/aws-sqs';
+import path = require('path');
+import { DemoApiConstructs } from './cdkts-demo-constructs';
 
 export class CdkTsDemoStack extends cdk.Stack {
   constructor(scope: Construct, id: string, props?: cdk.StackProps) {
     super(scope, id, props);
 
-    // The code that defines your stack goes here
+    new DemoApiConstructs(this, 'DemoApiConstructs', {
+      lambdaFunctions: [
+        {
+          fuctionName: 'demoApi',
+          fuctionId: 'demoApiV1',
+          IntegrationId: 'demoApiV1001',
+          handler: 'health.handler',
+          path: 'api/health',
+          method: HttpMethod.GET,
+          timeOut: Duration.seconds(3)
+        }
+      ]
+    });
 
-    // example resource
-    // const queue = new sqs.Queue(this, 'CdkTsDemoQueue', {
-    //   visibilityTimeout: cdk.Duration.seconds(300)
-    // });
+
   }
 }
