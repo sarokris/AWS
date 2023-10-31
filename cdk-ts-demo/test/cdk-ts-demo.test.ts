@@ -1,17 +1,16 @@
-// import * as cdk from 'aws-cdk-lib';
-// import { Template } from 'aws-cdk-lib/assertions';
-// import * as CdkTsDemo from '../lib/cdk-ts-demo-stack';
+import * as cdk from 'aws-cdk-lib';
+import { Template } from 'aws-cdk-lib/assertions';
+import * as CdkTsDemo from '../lib/cdk-ts-demo-stack';
 
-// example test. To run these tests, uncomment this file along with the
-// example resource in lib/cdk-ts-demo-stack.ts
-test('SQS Queue Created', () => {
-//   const app = new cdk.App();
-//     // WHEN
-//   const stack = new CdkTsDemo.CdkTsDemoStack(app, 'MyTestStack');
-//     // THEN
-//   const template = Template.fromStack(stack);
+test('Lambda function created', () => {
+  const app = new cdk.App();
+    // WHEN
+  const stack = new CdkTsDemo.CdkTsDemoStack(app, 'MyTestStack');
+    // THEN
+  const template = Template.fromStack(stack);
 
-//   template.hasResourceProperties('AWS::SQS::Queue', {
-//     VisibilityTimeout: 300
-//   });
+  template.hasResourceProperties('AWS::Lambda::Function', {
+    FunctionName: "demoApi",
+    Handler: "health.handler",
+  });
 });
