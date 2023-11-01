@@ -1,14 +1,19 @@
 # Welcome to your CDK TypeScript project
 
-This is a blank project for CDK development with TypeScript.
+This is a demo project for CDK development with TypeScript.
 
-The `cdk.json` file tells the CDK Toolkit how to execute your app.
+## Prerequisite
+- nodeJs 
+- Localstack 
+- Docker
+- cdklocal 
+- awslocal 
 
-## Useful commands
+## Installation
+- AWS CDK - https://www.npmjs.com/package/aws-cdk  
+- NodeJS - https://nodejs.org/en/download/
+- LocalStack - https://github.com/localstack/localst...
+- CDKLocal - https://www.npmjs.com/package/aws-cdk...
+- AWSLocal -  https://github.com/localstack/awscli-...
 
-* `npm run build`   compile typescript to js
-* `npm run watch`   watch for changes and compile
-* `npm run test`    perform the jest unit tests
-* `cdk deploy`      deploy this stack to your default AWS account/region
-* `cdk diff`        compare deployed stack with current state
-* `cdk synth`       emits the synthesized CloudFormation template
+
