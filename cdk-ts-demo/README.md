@@ -17,10 +17,17 @@ This is a demo project for CDK development with TypeScript.
 - AWSLocal -  https://github.com/localstack/awscli-...
 
 
+#### once you deployed the stack, find the rest api id using below command
+
+```
+aws --endpoint-url=http://localhost:4566 apigateway get-rest-apis --query="items[0].id"
+```
+
+
 #### you can access health  api by hitting the below URL
 
 ```
-http://localhost:4566/restapis/<rest_api_id>/local/_user_request_/<method_path>
+http://localhost:4566/restapis/<rest_api_id>/local/_user_request_/demo
 ```
 
 
