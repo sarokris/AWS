@@ -10,7 +10,7 @@ export type LambdaListType = {
     fuctionId: string,
     IntegrationId: string,
     handler: string,
-    path: string | undefined,
+    path: string,
     method: HttpMethod,
     timeOut: Duration     
 }

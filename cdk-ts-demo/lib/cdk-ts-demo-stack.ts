@@ -16,7 +16,7 @@ export class CdkTsDemoStack extends cdk.Stack {
           fuctionId: 'demoApiV1',
           IntegrationId: 'demoApiV1001',
           handler: 'health.handler',
-          path: 'api/health',
+          path: '/api/health',
           method: HttpMethod.GET,
           timeOut: Duration.seconds(3)
         }

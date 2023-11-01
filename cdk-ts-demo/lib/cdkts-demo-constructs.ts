@@ -1,16 +1,19 @@
-import * as path from 'path';
 import * as iam from 'aws-cdk-lib/aws-iam';
 import * as lambda from 'aws-cdk-lib/aws-lambda';
+import * as apigateway from 'aws-cdk-lib/aws-apigateway';
 import { Duration } from "aws-cdk-lib";
 import { Construct } from "constructs"
 import { DemoApiProps, LambdaListType } from "./cdk-ts-demo-prop";
 import { Code, Runtime } from 'aws-cdk-lib/aws-lambda';
+
 
 export class DemoApiConstructs  extends Construct {
     constructor(scope: Construct, id: string,prop: DemoApiProps) {
         super(scope,id);
 
         const lambdaList:LambdaListType[] =  prop.lambdaFunctions;
+
+        const api = new apigateway.RestApi(this,'demoApi');
 
         lambdaList.map(value => {
             const lambdaFunction = this.createLambdaFunction(
@@ -19,6 +22,11 @@ export class DemoApiConstructs  extends Construct {
                 value.handler,
                 value.timeOut ? value.timeOut : Duration.seconds(3)
                 );
+
+                const integration = new apigateway.LambdaIntegration(lambdaFunction);
+
+                const resource = api.root.addResource('demo');
+                resource.addMethod(value.method, integration);
 
         });
     }

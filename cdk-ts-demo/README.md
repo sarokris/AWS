@@ -17,3 +17,10 @@ This is a demo project for CDK development with TypeScript.
 - AWSLocal -  https://github.com/localstack/awscli-...
 
 
+#### you can access health  api by hitting the below URL
+
+```
+http://localhost:4566/restapis/<rest_api_id>/local/_user_request_/<method_path>
+```
+
+
