@@ -1,6 +1,8 @@
 # Welcome to your CDK TypeScript project
 
-This is a demo project for CDK development with TypeScript.
+This is a demo project for CDK development with TypeScript integrated with localstack deployment.
+
+![Solution](./docs/img/CDK_Localstack_solution_diagram.png)
 
 ## Prerequisite
 - nodeJs 
