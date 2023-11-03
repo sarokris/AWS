@@ -8,9 +8,8 @@ export interface DemoApiProps {
 export type LambdaListType = {
     fuctionName: string,
     fuctionId: string,
-    IntegrationId: string,
     handler: string,
-    path: string,
+    path?: string,
     method: HttpMethod,
     timeOut: Duration     
 }

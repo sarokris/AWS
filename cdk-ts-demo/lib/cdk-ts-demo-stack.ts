@@ -12,14 +12,36 @@ export class CdkTsDemoStack extends cdk.Stack {
     new DemoApiConstructs(this, 'DemoApiConstructs', {
       lambdaFunctions: [
         {
-          fuctionName: 'demoApi',
-          fuctionId: 'demoApiV1',
-          IntegrationId: 'demoApiV1001',
+          fuctionName: 'demoHealthApi',
+          fuctionId: 'demoHealthApi',
           handler: 'health.handler',
-          path: '/api/health',
+          path: 'health',
+          method: HttpMethod.GET,
+          timeOut: Duration.seconds(3)
+        },
+        {
+          fuctionName: 'demoPostApi',
+          fuctionId: 'demoPostApi',
+          handler: 'create-demo.handler',
+          method: HttpMethod.POST,
+          timeOut: Duration.seconds(3)
+        },
+        {
+          fuctionName: 'demoGetAllApi',
+          fuctionId: 'demoGetAllApi',
+          handler: 'get-all.handler',
           method: HttpMethod.GET,
           timeOut: Duration.seconds(3)
         }
+        // ,
+        // {
+        //   fuctionName: 'demoGetByIdApi',
+        //   fuctionId: 'demoGetByIdApi',
+        //   handler: 'health.handler',
+        //   path: '/api/health',
+        //   method: HttpMethod.GET,
+        //   timeOut: Duration.seconds(3)
+        // }
       ]
     });
 
