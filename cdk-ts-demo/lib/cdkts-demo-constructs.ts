@@ -3,7 +3,7 @@ import * as lambda from 'aws-cdk-lib/aws-lambda';
 import * as dynamodb from 'aws-cdk-lib/aws-dynamodb'
 import * as apigateway from 'aws-cdk-lib/aws-apigateway';
 import { Duration } from "aws-cdk-lib";
-import { Construct } from "constructs"
+import { Construct } from "constructs";
 import { Code, Runtime } from 'aws-cdk-lib/aws-lambda';
 import { HttpMethod } from 'aws-cdk-lib/aws-events';
 
@@ -45,7 +45,7 @@ export class DemoApiConstructs  extends Construct {
                 value.handler,
                 value.timeOut ? value.timeOut : Duration.seconds(3),
                 dynamodbTable.tableName,
-                'demoId'
+                'id'
                 );
 
                 const integration = new apigateway.LambdaIntegration(lambdaFunction); 

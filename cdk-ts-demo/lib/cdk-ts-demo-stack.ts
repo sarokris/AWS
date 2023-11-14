@@ -25,6 +25,21 @@ export class CdkTsDemoStack extends cdk.Stack {
           handler: 'getall.handler',
           method: HttpMethod.GET,
           timeOut: Duration.seconds(3)
+        },
+        {
+          fuctionName: 'demoCreateApi',
+          fuctionId: 'demoCreateApiV1',
+          handler: 'create.handler',
+          method: HttpMethod.POST,
+          timeOut: Duration.seconds(3)
+        },
+        {
+          fuctionName: 'demoGetOneApi',
+          fuctionId: 'demoGetOneApiV1',
+          handler: 'getone.handler',
+          path: '{demoId}',
+          method: HttpMethod.GET,
+          timeOut: Duration.seconds(3)
         }
       ]
     });

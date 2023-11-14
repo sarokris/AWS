@@ -1,4 +1,3 @@
-import * as AWS from 'aws-sdk';
 import {  DynamoDBClient } from "@aws-sdk/client-dynamodb";
 import {
   DynamoDBDocumentClient,
