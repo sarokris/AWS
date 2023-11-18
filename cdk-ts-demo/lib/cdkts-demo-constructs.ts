@@ -45,7 +45,7 @@ export class DemoApiConstructs  extends Construct {
                 value.handler,
                 value.timeOut ? value.timeOut : Duration.seconds(3),
                 dynamodbTable.tableName,
-                'id'
+                'demoId'
                 );
 
                 const integration = new apigateway.LambdaIntegration(lambdaFunction); 
