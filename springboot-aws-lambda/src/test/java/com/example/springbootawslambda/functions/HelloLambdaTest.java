@@ -11,12 +11,13 @@ import org.springframework.boot.test.web.client.TestRestTemplate;
 @AllArgsConstructor
 public class HelloLambdaTest {
 
-    private TestRestTemplate testRestTemplate;
+	private TestRestTemplate testRestTemplate;
 
-    @Test
-    public void testHelloLambda() throws Exception{
-        System.setProperty ("MAIN_CLASS", SpringbootAwsLambdaApplication.class.getName());
-        System. setProperty("spring.cloud.function.definition", "helloLambda");
+	@Test
+	public void testHelloLambda() throws Exception {
+		System.setProperty("MAIN_CLASS", SpringbootAwsLambdaApplication.class.getName());
+		System.setProperty("spring.cloud.function.definition", "helloLambda");
 
-    }
+	}
+
 }
