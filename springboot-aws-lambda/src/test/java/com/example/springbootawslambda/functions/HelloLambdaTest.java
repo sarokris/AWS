@@ -30,10 +30,8 @@ public class HelloLambdaTest {
 		invoker.handleRequest(targetStream, output, null);
 
 		String result = new String(output.toByteArray(), StandardCharsets.UTF_8);
-		Assertions.assertEquals(result,"TEST");
+		Assertions.assertEquals(result, "TEST");
 
 	}
-
-
 
 }
