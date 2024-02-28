@@ -25,7 +25,7 @@ public class CreateEmployee implements Function<APIGatewayV2HTTPEvent, APIGatewa
 	@Override
 	@SneakyThrows
 	public APIGatewayV2HTTPResponse apply(APIGatewayV2HTTPEvent apiGatewayV2HTTPEvent) {
-		Employee employee = objectMapper.readValue(apiGatewayV2HTTPEvent.getBody(),Employee.class);
+		Employee employee = objectMapper.readValue(apiGatewayV2HTTPEvent.getBody(), Employee.class);
 		return APIGatewayV2HTTPResponse.builder()
 			.withStatusCode(HttpStatus.OK.value())
 			.withBody(objectMapper.writeValueAsString(employeeService.createEmployee(employee)))

@@ -30,7 +30,8 @@ public class HelloLambdaTest {
 		invoker.handleRequest(targetStream, output, null);
 
 		String responseBody = new String(output.toByteArray(), StandardCharsets.UTF_8);
-//		String result = new ObjectMapper().readTree(responseBody).get("body").textValue();
+		// String result = new
+		// ObjectMapper().readTree(responseBody).get("body").textValue();
 		Assertions.assertEquals(responseBody, "HELLOLAMBDA");
 
 	}
