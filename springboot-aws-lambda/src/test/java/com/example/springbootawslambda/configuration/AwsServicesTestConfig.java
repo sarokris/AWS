@@ -29,6 +29,4 @@ public class AwsServicesTestConfig {
 		return DynamoDbClient.builder().endpointOverride(URI.create(endpoint)).region(Region.of(region)).build();
 	}
 
-
-
 }

@@ -27,18 +27,17 @@ import java.nio.charset.StandardCharsets;
 import java.util.Map;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-//@ContextConfiguration(classes = { AwsServicesTestConfig.class })
+// @ContextConfiguration(classes = { AwsServicesTestConfig.class })
 @ExtendWith(LocalstackDockerExtension.class)
 @LocalstackDockerProperties(services = { ServiceName.DYNAMO })
 @AllArgsConstructor(onConstructor = @__(@Autowired))
 @Slf4j
 public class CreateEmployeeTest {
 
-
 	private final ObjectMapper objectMapper;
 
 	@BeforeAll
-	public static void setUp(){
+	public static void setUp() {
 		DynamoDBUtils.createTable();
 	}
 
