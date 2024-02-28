@@ -20,24 +20,26 @@ import static com.example.springbootawslambda.config.AppConstants.EMP_TAB_PARTIT
 public class DynamoDBUtils {
 
 	public static void createTable() {
-		DynamoDbClient ddbClient = DynamoDbClient.builder()
+		try (DynamoDbClient ddbClient = DynamoDbClient.builder()
 			.endpointOverride(URI.create("http://127.0.0.1:4566"))
 			.region(Region.US_EAST_1)
-			.build();
+			.build()) {
 
-		CreateTableRequest createTableRequest = CreateTableRequest.builder()
-			.attributeDefinitions(AttributeDefinition.builder()
-				.attributeName(EMP_TAB_PARTITION_KEY)
-				.attributeType(ScalarAttributeType.S)
-				.build())
-			.keySchema(KeySchemaElement.builder().attributeName(EMP_TAB_PARTITION_KEY).keyType(KeyType.HASH).build())
-			.provisionedThroughput(
-					ProvisionedThroughput.builder().readCapacityUnits(10L).writeCapacityUnits(10L).build())
-			.tableName(EMPLOYEE_TABLE)
-			.build();
-		CreateTableResponse response = ddbClient.createTable(createTableRequest);
-		System.out.println("Employee table created successfully");
+			CreateTableRequest createTableRequest = CreateTableRequest.builder()
+				.attributeDefinitions(AttributeDefinition.builder()
+					.attributeName(EMP_TAB_PARTITION_KEY)
+					.attributeType(ScalarAttributeType.S)
+					.build())
+				.keySchema(
+						KeySchemaElement.builder().attributeName(EMP_TAB_PARTITION_KEY).keyType(KeyType.HASH).build())
+				.provisionedThroughput(
+						ProvisionedThroughput.builder().readCapacityUnits(10L).writeCapacityUnits(10L).build())
+				.tableName(EMPLOYEE_TABLE)
+				.build();
+			CreateTableResponse response = ddbClient.createTable(createTableRequest);
+			System.out.println("Employee table created successfully");
 
+		}
 	}
 
 }

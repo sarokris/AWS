@@ -5,7 +5,6 @@ import cloud.localstack.docker.LocalstackDockerExtension;
 import cloud.localstack.docker.annotation.LocalstackDockerProperties;
 import com.amazonaws.services.lambda.runtime.events.APIGatewayV2HTTPEvent;
 import com.example.springbootawslambda.SpringbootAwsLambdaApplication;
-import com.example.springbootawslambda.configuration.AwsServicesTestConfig;
 import com.example.springbootawslambda.functions.employee.dto.Employee;
 import com.example.springbootawslambda.util.DynamoDBUtils;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -18,7 +17,6 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.cloud.function.adapter.aws.FunctionInvoker;
-import org.springframework.test.context.ContextConfiguration;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
