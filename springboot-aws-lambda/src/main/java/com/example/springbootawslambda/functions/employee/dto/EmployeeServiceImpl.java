@@ -14,4 +14,10 @@ public class EmployeeServiceImpl implements EmployeeService {
 		throw new UnsupportedOperationException("not implemented");
 	}
 
+	@Override
+	public Employee createEmployee(Employee employee) {
+		//TODO update the logic once the db is set up
+		return employee;
+	}
+
 }
