@@ -6,4 +6,6 @@ public class AppConstants {
 
 	public static final String EMP_TAB_PARTITION_KEY = "id";
 
+	public static final String STATUS_CODE = "statusCode";
+
 }
