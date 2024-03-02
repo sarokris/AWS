@@ -27,7 +27,7 @@ public class FindEmployee implements Function<APIGatewayV2HTTPEvent, APIGatewayV
 	@SneakyThrows
 	public APIGatewayV2HTTPResponse apply(APIGatewayV2HTTPEvent event) {
 		Map<String, String> pathParams = event.getPathParameters();
-		if (pathParams.isEmpty() || StringUtils.hasText(pathParams.get("id"))) {
+		if (pathParams == null || pathParams.isEmpty() || !StringUtils.hasText(pathParams.get("id"))) {
 			throw new RuntimeException("Invalid request, employeeId should be present in the request");
 		}
 		String empId = pathParams.get("id");
