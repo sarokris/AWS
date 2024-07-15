@@ -25,9 +25,9 @@ Follow the CDK deployment process explained in [this article](https://www.linked
 ```
 aws --endpoint-url=http://localhost:4566 sns publish \                           
  --topic-arn arn:aws:sns:ap-south-1:000000000000:ProductLaunch \
- --message "Hello from AWS CLI with message attributes" \
+ --message "System design interview volume 3" \
  --message-attributes \
-    '{"productType": {"DataType": "String", "StringValue": "books"}}'
+    '{"eventType": {"DataType": "String", "StringValue": "new_book_launched"}}'
 ```
 you can replace the arn of the topic and publish to send message to your topic for testing. 
 
