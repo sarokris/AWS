@@ -2,6 +2,8 @@
 
 This is a demo project for CDK development with TypeScript integrated with localstack deployment to demonstrate the SNS message filtering capabilities.
 
+![Solution](./image/SNS-message-filtering.png)
+
 
 ## Prerequisite
 - nodeJs 
