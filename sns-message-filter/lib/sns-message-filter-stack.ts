@@ -38,11 +38,11 @@ export class SnsMessageFilterStack extends cdk.Stack {
     lambda1.addEventSource(new eventSources.SqsEventSource(bookQueue));
     lambda2.addEventSource(new eventSources.SqsEventSource(gadgetQueue));
 
-    //    // Add SQS subscriptions to SNS topic with filter policies
+    // Add SQS subscriptions to SNS topic with filter policies
     productLaunchTopic.addSubscription(new subscription.SqsSubscription(bookQueue,{
       filterPolicy: {
-        productType: sns.SubscriptionFilter.stringFilter({
-          allowlist: ['books']
+        eventType: sns.SubscriptionFilter.stringFilter({
+          allowlist: ['new_books_launched']
         })
       }
     }));
@@ -50,8 +50,8 @@ export class SnsMessageFilterStack extends cdk.Stack {
     productLaunchTopic.addSubscription(new subscription.SqsSubscription(gadgetQueue,
       {
         filterPolicy: {
-          productType: sns.SubscriptionFilter.stringFilter({
-            allowlist: ['gadget']
+          eventType: sns.SubscriptionFilter.stringFilter({
+            allowlist: ['new_gadget_launched']
           })
         }
       }
